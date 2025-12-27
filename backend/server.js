@@ -18,12 +18,6 @@ connectDB();
 const app = express();
 const PORT  = process.env.PORT || 5002;
 
-// Debug CORS configuration
-console.log('🔧 CORS Configuration:');
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
-console.log('Production mode:', process.env.NODE_ENV === 'production');
-
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
