@@ -18,10 +18,21 @@ connectDB();
 const app = express();
 const PORT  = process.env.PORT || 5002;
 
+// Debug CORS configuration
+console.log('🔧 CORS Configuration:');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
+console.log('Production mode:', process.env.NODE_ENV === 'production');
+
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.FRONTEND_URL] 
+    ? [
+        process.env.FRONTEND_URL,
+        'https://escdc-website.vercel.app',
+        'https://escdc-website-git-main-mohammedaminsa.vercel.app',
+        'https://escdc-website-mohammedaminsa.vercel.app'
+      ]
     : [
         process.env.FRONTEND_URL || 'http://localhost:5173',
         'http://localhost:5173',
