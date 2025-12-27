@@ -137,7 +137,7 @@ export default function Leadership() {
                       <div className="w-32 h-32 mx-auto mb-6 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
                         {leader.image ? (
                           <img 
-                            src={`http://localhost:5002${leader.image}`} 
+                            src={`${import.meta.env.VITE_API_URL.replace('/api', '')}${leader.image}`} 
                             alt={leader.name}
                             className="w-full h-full object-cover"
                           />
@@ -212,7 +212,7 @@ export default function Leadership() {
                         <div className="flex items-center">
                           {member.image ? (
                             <img 
-                              src={`http://localhost:5002${member.image}`} 
+                              src={`${import.meta.env.VITE_API_URL.replace('/api', '')}${member.image}`} 
                               alt={member.name}
                               className="w-12 h-12 rounded-full object-cover mr-4"
                             />
