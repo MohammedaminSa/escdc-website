@@ -23,5 +23,3 @@ router.put('/:id', authenticateAdmin, updateGalleryImage);
 router.delete('/:id', authenticateAdmin, deleteGalleryImage);
 
 export default router;
-
-export default router;
