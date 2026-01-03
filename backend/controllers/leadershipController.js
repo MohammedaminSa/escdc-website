@@ -1,5 +1,6 @@
 import Leadership from '../models/LeadershipModel.js';
-import { leadershipUpload, cloudinary } from '../config/cloudinary.js';
+import fs from 'fs';
+import path from 'path';
 
 // Get all leadership members (public)
 export const getAllLeadership = async (req, res) => {
