@@ -38,12 +38,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files
-app.use('/uploads/gallery', express.static('uploads/gallery'));
-app.use('/uploads/resources', express.static('uploads/resources'));
-app.use('/uploads/leadership', express.static('uploads/leadership'));
-app.use('/uploads/events', express.static('uploads/events'));
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/contact', contactRoutes);

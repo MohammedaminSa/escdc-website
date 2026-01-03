@@ -148,7 +148,7 @@ export default function Gallery() {
                   <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
                     <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                       <img
-                        src={`${import.meta.env.VITE_API_URL.replace('/api', '')}${image.url}`}
+                        src={image.url}
                         alt={image.title || 'Gallery image'}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
