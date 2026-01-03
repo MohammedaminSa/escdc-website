@@ -1,5 +1,6 @@
 import Gallery from '../models/GalleryModel.js';
-import { galleryUpload, cloudinary } from '../config/cloudinary.js';
+import path from 'path';
+import fs from 'fs';
 
 // @desc    Get all gallery media
 // @route   GET /api/gallery
@@ -46,11 +47,20 @@ export const uploadGalleryImage = async (req, res) => {
     const isVideo = req.file.mimetype.startsWith('video/');
     const mediaType = isVideo ? 'video' : 'image';
 
-    // Save to database with Cloudinary URL
+    // Validate file size (50MB for videos, 5MB for images)
+    const maxSize = isVideo ? 50 * 1024 * 1024 : 5 * 1024 * 1024;
+    if (req.file.size > maxSize) {
+      return res.status(400).json({
+        success: false,
+        message: `File too large. Maximum size is ${isVideo ? '50MB' : '5MB'}`
+      });
+    }
+
+    // Save to database
     const galleryMedia = new Gallery({
       filename: req.file.filename,
       originalName: req.file.originalname,
-      url: req.file.path, // Cloudinary URL
+      url: `/uploads/gallery/${req.file.filename}`,
       mediaType,
       mimeType: req.file.mimetype,
       fileSize: req.file.size,
@@ -92,13 +102,11 @@ export const deleteGalleryImage = async (req, res) => {
       });
     }
 
-    // Delete file from Cloudinary
-    if (image.filename) {
-      try {
-        await cloudinary.uploader.destroy(`escdc/gallery/${image.filename}`);
-      } catch (cloudinaryError) {
-        console.error('Cloudinary delete error:', cloudinaryError);
-      }
+    // Delete file from filesystem
+    const uploadDir = 'uploads/gallery';
+    const filePath = path.join(uploadDir, image.filename);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
     }
 
     // Delete from database
