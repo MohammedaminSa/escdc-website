@@ -92,11 +92,7 @@ cd frontend && npm run dev
 - Frontend: http://localhost:5173
 - Backend: http://localhost:5002
 
-## 🔐 Admin Access
-
-The website includes a secure admin dashboard for content management. Admin access is restricted and not publicly documented for security reasons.
-
-## 📱 Social Media
+## � SocialA Media
 
 - **Facebook:** https://www.facebook.com/escdc.haramaya
 - **Telegram:** https://t.me/escdc_haramaya
