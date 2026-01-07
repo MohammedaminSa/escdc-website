@@ -25,19 +25,10 @@
 - **Modern UI/UX:** Professional design with animations
 - **Contact Form:** Functional contact system
 - **Membership Registration:** Student registration system
-
-### Admin Dashboard
-- **Secure Authentication:** JWT-based login system
-- **Content Management:** Complete CRUD operations for all content
-- **File Upload System:** Photos, videos, and documents
-- **Multi-Admin Support:** Create multiple admin accounts
-- **Management Modules:**
-  - Gallery Management (upload/delete images and videos)
-  - Resource Management (upload/delete files)
-  - Leadership Management (add/edit team members with photos)
-  - Event Management (create/edit/delete events with media)
-  - Member Management (view/approve registrations)
-  - Contact Management (view messages)
+- **Gallery System:** Photo and video showcase
+- **Resource Library:** Document downloads
+- **Leadership Profiles:** Team member information
+- **Event Management:** Upcoming and past events
 
 ## 🚀 Quick Start
 
