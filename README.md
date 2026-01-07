@@ -4,53 +4,10 @@
 
 *Empowering Students. Building Careers. Creating Entrepreneurs.*
 
-## 🚀 Quick Start
+## 🌐 Live Website
 
-### Option 1: Easy Startup (Recommended)
-```bash
-# From the root directory
-npm run dev
-```
-This will start both servers automatically!
-
-### Option 2: Windows Batch Script
-```bash
-# Double-click start.bat or run:
-start.bat
-```
-
-### Option 3: Manual (Two terminals)
-```bash
-# Terminal 1 - Backend
-cd backend
-npm start
-
-# Terminal 2 - Frontend  
-cd frontend
-npm run dev
-```
-
-**Access the application:**
-- Frontend: http://localhost:5174 (or next available port)
-- Backend: http://localhost:5002
-- Admin Dashboard: http://localhost:5174/admin
-
-### 🔧 Troubleshooting
-
-**If pages don't load data after restart:**
-1. Make sure both servers are running
-2. Check that backend shows "MongoDB Connected" message
-3. Verify ports are not in use by other applications
-4. Use the `start.bat` script which automatically cleans up ports
-
-**Port already in use error:**
-```bash
-# Windows - Kill processes on ports
-netstat -ano | findstr :5002
-taskkill /PID <PID_NUMBER> /F
-
-# Or just use start.bat which does this automatically
-```
+- **Website:** https://escdc-website-eirx9k5c8-mohammedamins-projects-6fbf8975.vercel.app
+- **Admin Dashboard:** https://escdc-website-eirx9k5c8-mohammedamins-projects-6fbf8975.vercel.app/admin
 
 ## 🛠️ Tech Stack
 
@@ -59,43 +16,92 @@ taskkill /PID <PID_NUMBER> /F
 - **Database:** MongoDB Atlas (Cloud)
 - **Authentication:** JWT + bcrypt
 - **File Upload:** Multer + Local Storage
+- **Deployment:** Vercel (Frontend) + Render (Backend)
 
 ## ✨ Features
 
-- ✅ **9 Complete Pages** (Home, About, Programs, Membership, Leadership, Events, Resources, Gallery, Contact)
-- ✅ **Secure Admin Dashboard** with authentication
-- ✅ **Gallery Management** - Upload and manage event photos
-- ✅ **Resource Management** - Upload documents and files
-- ✅ **Leadership Management** - Add/edit team members with photos
-- ✅ **Event Management** - Create and manage events
-- ✅ **Member Management** - View and manage registrations
-- ✅ **Contact Management** - Handle contact form submissions
-- ✅ **Email Notifications** - Automated email system
-- ✅ **Responsive Design** - Works on all devices
-- ✅ **Social Media Integration** - Connected social platforms
+### Public Website
+- **9 Complete Pages:** Home, About, Programs, Membership, Leadership, Events, Resources, Gallery, Contact
+- **Responsive Design:** Works on all devices
+- **Modern UI/UX:** Professional design with animations
+- **Contact Form:** Functional contact system
+- **Membership Registration:** Student registration system
 
-## ⚙️ Configuration
+### Admin Dashboard
+- **Secure Authentication:** JWT-based login system
+- **Content Management:** Complete CRUD operations for all content
+- **File Upload System:** Photos, videos, and documents
+- **Multi-Admin Support:** Create multiple admin accounts
+- **Management Modules:**
+  - Gallery Management (upload/delete images and videos)
+  - Resource Management (upload/delete files)
+  - Leadership Management (add/edit team members with photos)
+  - Event Management (create/edit/delete events with media)
+  - Member Management (view/approve registrations)
+  - Contact Management (view messages)
 
-### Backend (.env)
-```env
-# Server Configuration
-PORT=5002
-NODE_ENV=development
+## 🚀 Quick Start
 
-# MongoDB Atlas (Update with your connection string)
-MONGODB_URI=mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@YOUR_CLUSTER.mongodb.net/escdc?retryWrites=true&w=majority
+### Prerequisites
+- Node.js 18+ installed
+- MongoDB Atlas account
+- Git installed
 
-# JWT Secret (Change in production)
-JWT_SECRET=your-super-secret-jwt-key-here
+### Installation
 
-# Frontend URL (for CORS)
-FRONTEND_URL=http://localhost:5174
+1. **Clone the repository:**
+```bash
+git clone https://github.com/MohammedaminSa/escdc-website.git
+cd escdc-website
 ```
 
-### Frontend (.env)
+2. **Install dependencies:**
+```bash
+# Install root dependencies
+npm install
+
+# Install backend dependencies
+cd backend
+npm install
+
+# Install frontend dependencies
+cd ../frontend
+npm install
+```
+
+3. **Environment Setup:**
+
+Create `backend/.env`:
+```env
+PORT=5002
+NODE_ENV=development
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+FRONTEND_URL=http://localhost:5173
+```
+
+Create `frontend/.env`:
 ```env
 VITE_API_URL=http://localhost:5002/api
 ```
+
+4. **Start Development Servers:**
+```bash
+# From root directory - starts both servers
+npm run dev
+
+# Or manually:
+# Terminal 1 - Backend
+cd backend && npm start
+
+# Terminal 2 - Frontend  
+cd frontend && npm run dev
+```
+
+5. **Access the application:**
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5002
+- Admin Setup: http://localhost:5173/admin/setup
 
 ## 🔐 Admin Setup
 
@@ -105,27 +111,12 @@ VITE_API_URL=http://localhost:5002/api
    - Login at `/admin/login`
 
 2. **Admin Features:**
-   - Gallery management (upload/delete images)
-   - Resource management (upload/delete files)
-   - Leadership management (add/edit members with photos)
-   - Event management (create/edit/delete events)
-   - Member management (view/approve registrations)
-   - Contact management (view messages)
+   - Complete content management system
+   - File upload and management
+   - User registration handling
+   - Contact form management
 
-## 🌐 Production Deployment
-
-### Backend Deployment
-1. Set `NODE_ENV=production`
-2. Update `FRONTEND_URL` to your production domain
-3. Use a strong `JWT_SECRET` (32+ characters)
-4. Ensure MongoDB Atlas IP whitelist includes your server
-
-### Frontend Deployment
-1. Update `VITE_API_URL` to your production backend URL
-2. Run `npm run build`
-3. Deploy the `dist` folder
-
-## 📱 Social Media Links
+## 📱 Social Media
 
 - **Facebook:** https://www.facebook.com/escdc.haramaya
 - **Telegram:** https://t.me/escdc_haramaya
@@ -145,16 +136,29 @@ VITE_API_URL=http://localhost:5002/api
 │   ├── models/            # MongoDB models
 │   ├── routes/            # API routes
 │   ├── middleware/        # Authentication middleware
-│   ├── uploads/           # File storage
-│   └── utils/             # Utility functions
+│   ├── config/            # Database configuration
+│   └── uploads/           # File storage
 ├── frontend/              # React frontend
 │   ├── src/
 │   │   ├── components/    # Reusable components
 │   │   ├── pages/         # Page components
 │   │   └── services/      # API services
 │   └── public/            # Static assets
-└── README.md             # This file
+├── package.json          # Root package configuration
+└── README.md            # This file
 ```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
 
 ---
 
