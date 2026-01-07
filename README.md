@@ -6,8 +6,7 @@
 
 ## 🌐 Live Website
 
-- **Website:** https://escdc-website-eirx9k5c8-mohammedamins-projects-6fbf8975.vercel.app
-- **Admin Dashboard:** https://escdc-website-eirx9k5c8-mohammedamins-projects-6fbf8975.vercel.app/admin
+- **Website:** https://escdc-website.vercel.app
 
 ## 🛠️ Tech Stack
 
@@ -101,20 +100,10 @@ cd frontend && npm run dev
 5. **Access the application:**
 - Frontend: http://localhost:5173
 - Backend: http://localhost:5002
-- Admin Setup: http://localhost:5173/admin/setup
 
-## 🔐 Admin Setup
+## 🔐 Admin Access
 
-1. **First Time Setup:**
-   - Go to `/admin/setup`
-   - Create your admin account
-   - Login at `/admin/login`
-
-2. **Admin Features:**
-   - Complete content management system
-   - File upload and management
-   - User registration handling
-   - Contact form management
+The website includes a secure admin dashboard for content management. Admin access is restricted and not publicly documented for security reasons.
 
 ## 📱 Social Media
 
